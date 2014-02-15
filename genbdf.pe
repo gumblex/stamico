@@ -1,0 +1,5 @@
+Open("MergedFont.sfd")
+#BitmapsAvail(40;)
+#SelectAll()
+Generate("MergedFont.","bdf")
+Close()
