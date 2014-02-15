@@ -123,17 +123,18 @@ for k in errd:
 	print k
 	print ' ' + errd[k].strip()
 print 'Done %s%%.' % (str(float(gnum*100)/fontlen))
-with open('errstat.json', 'r') as f:
-	errstat = json.load(f)
-errstat['err']+=len(errd)
-errstat['count']+=gnum
-print 'Problem ~=' + str(errstat['err']/float(errstat['count'])*fontlen)
-with open('errstat.json', 'w') as f:
-	json.dump(errstat, f)
-if errd:
+# with open('errstat.json', 'r') as f:
+	# errstat = json.load(f)
+# errstat['err']+=len(errd)
+# errstat['count']+=gnum
+# print 'Problem ~=' + str(errstat['err']/float(errstat['count'])*fontlen)
+# with open('errstat.json', 'w') as f:
+	# json.dump(errstat, f)
+if gnum!=fontlen:
 	#proc=Popen(u"fontforge MergedFont.sfd", shell=True, cwd=os.getcwdu())
 	print 'Fontforge started. shell pid %s' % str(proc.pid)
 else:
-	os.chdir('../')
+	#os.chdir('../')
 	#proc=Popen(u"python autoadjust.py", shell=True, cwd=os.getcwdu())
-	print 'python started. shell pid %s' % str(proc.pid)
+	#print 'python started. shell pid %s' % str(proc.pid)
+	print 'Done.'
