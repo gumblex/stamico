@@ -24,6 +24,17 @@ The current version of the font is 1.1.2.1402. Build date: Feb. 6, 2014.
 
 当前版本：1.1.2.1402。创建日期：2014年2月6日。
 
+Screenshots 截图
+---------------
+![Sample](https://github.com/gumblex/stamico/blob/master/stamico.png?raw=true)
+
+I CANNOT eat glass. It's just the sentence in the GNOME Font Viewer.
+
+我不能吞下玻璃而不伤身体。只是字体查看器用了这句话。
+
+Download 下载
+------------
+[Stamico.ttf](https://github.com/gumblex/stamico/blob/master/Stamico.ttf?raw=true)
 
 The auto adjusting scripts 自动调整脚本
 -------------------------------------
@@ -34,3 +45,24 @@ WARNING: The scripts may also contains some workaround for speeding up the calcu
 为减少手工工作量，也为了提高由手机照片自动描线生成的中文字部分的质量，我写了一些自动化脚本用来调整字体。
 
 警告：这些脚本可能为了使用不含FontForge的PyPy解释器加快计算速度而优化，也可能做了一些迂回措施来避免FontForge中某些糟糕的问题。我可能给脚本、模块、函数、变量等瞎取名字，所以请在使用前务必认真阅读代码。
+
+* `autowidth.py` calculates the stroke width.
+* `awerr.py` runs `awff.py` and analyzes the error log.
+* `awff.py` actually runs FF to change glyphs in a small number to avoid FF's bugs.
+* `bdflib.py` works with BDF font files.
+* `centerglyph.py` is embeded in FF and adds some tools to it.
+* `DYRegscript.sfd` is the `Stamico.ttf`'s source.
+* `dyz-all.pdf` is the font demo.
+* `englishkernpairs.txt` contains the kerning pairs from FontForge.
+* `genbdf.pe` generates the BDF of the Chinese part.
+* `gwid_dict.json` is the dict of stroke width of every glyph.
+* `k3m.py` is the K3M skeletonization algorithm.
+* `LICENSE` is the GPL license of the scripts.
+* `LICENSE-FONT` is the OFL license of the font.
+* `MergedFont.sfd` is the original Chinese part of the font.
+* `MergedResized.sfd` is the auto-adjusted `MergedFont.sfd`.
+* `merge.pe` merges the two parts of the font.
+* `README.md` explains the project.
+* `stamico.png` shows the font.
+* `Stamico.sfd` is the part containing no Chinese characters.
+* `Stamico.ttf` is the complete font.
