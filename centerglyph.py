@@ -64,10 +64,12 @@ def CenterGlyph(junk, afont):
 
 def CenterHeight(junk, afont):
 	'''Main function.'''
-	center = (afont.ascent - afont.descent/2)/2
+	center = (afont.ascent - afont.descent)/2
 
 	for glyph in afont.selection.byGlyphs:
-		center_glyph_height(glyph, center)
+		bounding = glyph.boundingBox()
+		if not [x for x in (bounding[1],bounding[3]) if abs(x-center)<center/2]:
+			center_glyph_height(glyph, center)
 
 def fit_glyph_plus(glyph, em, percent, wavg, havg):
 	'''Scale a glyph horizontally to fit the width.'''
