@@ -40,7 +40,7 @@ gwid={}
 if len(sys.argv)>1:
 	print 'Generating bdf...'
 	Popen(u"fontforge -script genbdf.pe %s >/dev/null 2>&1" % str(pointsize), shell=True, cwd=os.getcwdu()).wait()
-	srcfile = open('MergedFont-%s.bdf' % pointsize, 'r')
+	srcfile = open('MergedResized-%s.bdf' % pointsize, 'r')
 	bdffile = srcfile.readlines()
 	srcfile.close()
 	fontd = bdflib.read_bdf(iter(bdffile))
@@ -92,7 +92,7 @@ else:
 	fontlen = gwid['##len']
 gwid={}
 
-shutil.copy2("MergedFont.sfd", "MergedResized.sfd")
+shutil.copy2("MergedResized.sfd", "MergedResizedaw.sfd")
 print "Auto changing width..."
 proc=Popen(u"python -u autowidth.py >aw.log 2>&1", shell=True, cwd=os.getcwdu())
 print 'Process started. shell pid %s' % str(proc.pid)

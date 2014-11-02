@@ -46,7 +46,7 @@ for aglyphp in afont.selection:
 	thiswid=gwid[afont[aglyphp].glyphname]
 	if thiswid:
 		wid=avgwid-thiswid
-		print "Glyph %s ." % aglyph.glyphname
+		print "Glyph %s" % aglyph.glyphname
 		if int(wid)!=0:
 			if .005<wid<.8:
 				aglyph.stroke("circular",int(abs(wid*scalen)),'round','round',('removeinternal','cleanup'))

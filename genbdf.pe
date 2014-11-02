@@ -1,5 +1,5 @@
-Open("MergedFont.sfd")
+Open("MergedResized.sfd")
 #BitmapsAvail(40;)
 #SelectAll()
-Generate("MergedFont.","bdf")
+Generate("MergedResized.","bdf")
 Close()

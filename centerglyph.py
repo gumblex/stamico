@@ -127,7 +127,7 @@ def ScaleToEm(percent, afont):
 	lbearing = int(em*0.05)
 	if not percent:
 		ret = fontforge.askString('Scale Percent?',
-				'Percent of Line Height (em)?', '99' )
+				'Percent of Line Height (em)?', '95' )
 		if not ret:
 			return
 		try:
@@ -148,7 +148,7 @@ def ScaleToSquare(percent, afont):
 	'''Scale a font to nearly fit a square.'''
 	if not percent:
 		ret = fontforge.askString('Scale Percent?',
-				'Percent of Scale?', '36' )
+				'Percent of Scale?', '20' )
 		if not ret:
 			return
 		try:
@@ -205,6 +205,12 @@ def YOffset(percent, afont):
 	matrix = psMat.translate(0, deltay)
 	for glyph in afont.selection.byGlyphs:
 		glyph.transform(matrix)
+
+def AutoAdjust(afont):
+	ScaleToEm(None, afont)
+	ScaleToSquare(None, afont)
+	YOffset(None, afont)
+	BoundToSquare(None, afont)
 
 def get_max_size(afont):
 	'''Get the max size of the selected glyphs.'''
@@ -278,3 +284,5 @@ if fontforge.hasUserInterface():
 			"Scale to Em");
 	fontforge.registerMenuItem(ScaleToSquare, None, None, "Font", None, "Transform", 
 			"Scale to Sqare");
+	fontforge.registerMenuItem(ScaleToSquare, None, None, "Font", None, "Transform", 
+			"Auto Adjust");
